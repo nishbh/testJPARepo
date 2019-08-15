@@ -1,0 +1,15 @@
+CREATE TABLE `department` (
+  `iddepartment` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`iddepartment`)
+) ;
+
+CREATE TABLE `employee` (
+  `idemployee` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `iddepartment` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idemployee`),
+  KEY `fk_dept` (`iddepartment`),
+  CONSTRAINT `fk_dept` FOREIGN KEY (`iddepartment`) REFERENCES `department` (`iddepartment`)
+)
