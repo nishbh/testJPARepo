@@ -1,0 +1,23 @@
+CREATE TABLE `employee` (
+  `idemployee` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`idemployee`)
+) ;
+
+
+
+CREATE TABLE `employee_project` (
+  `idemployee` int(11) DEFAULT NULL,
+  `idproject` int(11) DEFAULT NULL,
+  KEY `fk_employee` (`idemployee`),
+  KEY `fk_project` (`idproject`),
+  CONSTRAINT `fk_employee` FOREIGN KEY (`idemployee`) REFERENCES `employee` (`idemployee`),
+  CONSTRAINT `fk_project` FOREIGN KEY (`idproject`) REFERENCES `project` (`idproject`)
+) ;
+
+
+CREATE TABLE `project` (
+  `idproject` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`idproject`)
+) ;
