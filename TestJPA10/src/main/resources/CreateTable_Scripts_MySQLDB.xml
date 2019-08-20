@@ -1,0 +1,44 @@
+
+CREATE TABLE IF NOT EXISTS truck (
+    idVehicle INT AUTO_INCREMENT,
+     manufacturer VARCHAR(255) ,
+    vehicle_type VARCHAR(255),
+    fk_truck_vehicle INT, 
+    PRIMARY KEY (idVehicle),
+    
+    FOREIGN KEY fk_truck(fk_truck_vehicle)
+   REFERENCES vehicle(idvehicle)
+) 
+
+;
+CREATE TABLE IF NOT EXISTS Vehicle (
+    idVehicle INT AUTO_INCREMENT,
+    manufacturer VARCHAR(255) ,
+    vehicle_type VARCHAR(255),
+    Primary KEY(idVehicle)
+) 
+
+;
+CREATE TABLE IF NOT EXISTS car (
+    idVehicle INT AUTO_INCREMENT,
+     noOfPassengers INT ,
+    noOfDoors INT,
+    fk_car_vehicle INT, 
+    PRIMARY KEY (idVehicle),
+    
+    FOREIGN KEY fk_car(fk_car_vehicle)
+   REFERENCES vehicle(idvehicle)
+) ;
+
+CREATE TABLE IF NOT EXISTS bike (
+    idVehicle INT AUTO_INCREMENT,
+     noOfPassengers INT ,
+    saddleheight INT,
+    fk_bike_vehicle INT, 
+    PRIMARY KEY (idVehicle),
+    
+    FOREIGN KEY fk_bike(fk_bike_vehicle)
+   REFERENCES vehicle(idvehicle)
+) 
+
+
